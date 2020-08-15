@@ -1,6 +1,6 @@
 <?php
 
-namespace Chr15k\Repository\AbstractRepository;
+namespace Chr15k\Repository;
 
 use Closure, Exception;
 use Illuminate\Database\Eloquent\Model;
