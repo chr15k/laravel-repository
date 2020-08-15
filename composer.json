@@ -1,0 +1,41 @@
+{
+    "name": "chr15k/laravel-repos",
+    "description": "Repository Layer design pattern for Laravel 7.x",
+    "keywords": [
+        "laravel",
+        "chr15k",
+        "repository",
+        "artisan",
+        "php",
+        "cli"
+    ],
+    "homepage": "https://github.com/chr15k/laravel-repos",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christopher Keller",
+            "email": "ctk8501@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5",
+        "laravel/framework": "^7.25"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chr15k\\Repository\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Chr15k\\Repository\\RepositoryServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

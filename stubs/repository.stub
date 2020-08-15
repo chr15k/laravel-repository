@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Repositories;
+
+use Chr15k\Repository\Repository;
+
+use App\{{model}};
+use App\Repositories\Contracts\{{interface}};
+
+class {{class}} extends Repository implements {{interface}}
+{
+    public function __construct({{model}} $model)
+    {
+        parent::__construct($model);
+    }
+}

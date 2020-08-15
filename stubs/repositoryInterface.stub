@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Repositories\Contracts;
+
+use Chr15k\Repository\RepositoryInterface;
+
+interface {{interface}} extends RepositoryInterface
+{
+
+}
