@@ -5,7 +5,7 @@ namespace Chr15k\Repository;
 use Illuminate\Support\ServiceProvider;
 use Chr15k\Repository\Console\RepositoryMakeCommand;
 
-class RepositoryProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * {@inheritdoc}
