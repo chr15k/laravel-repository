@@ -81,7 +81,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/../stubs/repository.stub';
+        return __DIR__ . '/../../stubs/repository.stub';
     }
 
     /**
@@ -91,7 +91,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected function getInterfaceStub()
     {
-        return __DIR__ . '/../stubs/repositoryInterface.stub';
+        return __DIR__ . '/../../stubs/repositoryInterface.stub';
     }
 
     /**
