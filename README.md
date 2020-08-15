@@ -4,7 +4,7 @@
 
 Laravel Repository is a package for Laravel 7. It's used to abstract business logic into a repository layer.
 
-The opinion...
+## The opinion...
 
 Controllers should be light, human readable, and just control the flow.
 Any developer should be able to take a look at a controller and understand it simply by reading it.

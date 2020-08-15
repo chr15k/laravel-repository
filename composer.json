@@ -1,5 +1,5 @@
 {
-    "name": "chr15k/laravel-repos",
+    "name": "chr15k/laravel-repository",
     "description": "Repository Layer design pattern for Laravel 7.x",
     "keywords": [
         "laravel",
@@ -9,7 +9,7 @@
         "php",
         "cli"
     ],
-    "homepage": "https://github.com/chr15k/laravel-repos",
+    "homepage": "https://github.com/chr15k/laravel-repository",
     "license": "MIT",
     "authors": [
         {
