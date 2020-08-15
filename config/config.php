@@ -12,7 +12,7 @@ return [
         // Set the Repository concrete class path.
         // --> app_path('Repositories')
         // --> app/Repositories/UserRepository
-        'repo_concrete'  => app_path('Repositories/Eloquent'),
+        'repo'  => app_path('Repositories/Eloquent'),
 
         // Set the Repository interface path.
         // --> app_path('Repositories/Contracts')

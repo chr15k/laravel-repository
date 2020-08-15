@@ -129,15 +129,21 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected function replaceClass($stub, $name)
     {
-        $class = str_replace($this->getNamespace($name).'\\', '', $name);
+        $search = [
+            '{{namespace}}',
+            '{{class}}',
+            '{{model}}',
+            '{{interface}}'
+        ];
 
-        $stub = str_replace('{{class}}', $class, $stub);
+        $replace = [
+            $this->generateNamespace($stub),
+            $this->generateClass($name),
+            $this->getModelName(),
+            $this->getInterfaceName()
+        ];
 
-        $stub = str_replace('{{model}}', $this->getModelName(), $stub);
-
-        $stub = str_replace('{{interface}}', $this->getInterfaceName(), $stub);
-
-        return $stub;
+        return str_replace($search, $replace, $stub);
     }
 
     /**
@@ -152,7 +158,7 @@ class RepositoryMakeCommand extends GeneratorCommand
 
         return sprintf(
             "%s/%s.php",
-            config('repos.paths.repo_concrete'),
+            config('repos.paths.repo'),
             str_replace('\\', '/', $name.'Repository')
         );
     }
@@ -172,5 +178,21 @@ class RepositoryMakeCommand extends GeneratorCommand
             config('repos.paths.repo_interface'),
             str_replace('\\', '/', $name.'RepositoryInterface')
         );
+    }
+
+    protected function generateNamespace($stub)
+    {
+        $configKey = Str::contains($stub, 'interface {{interface}}') ? 'repo_interface' : 'repo';
+
+        return sprintf(
+            "%s%s",
+            $this->rootNamespace(),
+            str_replace('/', '\\', Str::after(config("repos.paths.{$configKey}"), 'app/'))
+        );
+    }
+
+    protected function generateClass($name)
+    {
+        return str_replace($this->getNamespace($name).'\\', '', $name);
     }
 }

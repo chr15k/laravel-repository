@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Repositories;
-
-use Chr15k\Repository\Repository;
+namespace {{namespace}};
 
 use App\{{model}};
+use Chr15k\Repository\Repository;
 use App\Repositories\Contracts\{{interface}};
 
 class {{class}} extends Repository implements {{interface}}
