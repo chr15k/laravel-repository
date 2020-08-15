@@ -129,13 +129,13 @@ class RepositoryMakeCommand extends GeneratorCommand
      */
     protected function replaceClass($stub, $name)
     {
-        $class = Str::replace($this->getNamespace($name).'\\', '', $name);
+        $class = str_replace($this->getNamespace($name).'\\', '', $name);
 
-        $stub = Str::replace('{{class}}', $class, $stub);
+        $stub = str_replace('{{class}}', $class, $stub);
 
-        $stub = Str::replace('{{model}}', $this->getModelName(), $stub);
+        $stub = str_replace('{{model}}', $this->getModelName(), $stub);
 
-        $stub = Str::replace('{{interface}}', $this->getInterfaceName(), $stub);
+        $stub = str_replace('{{interface}}', $this->getInterfaceName(), $stub);
 
         return $stub;
     }
@@ -153,7 +153,7 @@ class RepositoryMakeCommand extends GeneratorCommand
         return sprintf(
             "%s/%s.php",
             config('repos.paths.repo_concrete'),
-            Str::replace('\\', '/', $name.'Repository')
+            str_replace('\\', '/', $name.'Repository')
         );
     }
 
@@ -170,7 +170,7 @@ class RepositoryMakeCommand extends GeneratorCommand
         return sprintf(
             "%s/%s.php",
             config('repos.paths.repo_interface'),
-            Str::replace('\\', '/', $name.'RepositoryInterface')
+            str_replace('\\', '/', $name.'RepositoryInterface')
         );
     }
 }
