@@ -35,10 +35,17 @@ You can install this package via composer:
 composer require chr15k/laravel-repository
 ```
 
-If you are not running Laravel 5.5 (or higher), then add the service provider in config/app.php:
+If you are not running Laravel 5.5 (or higher), then add the service provider in `config/app.php`:
 
 ```php
 Chr15k\Repository\RepositoryServiceProvider::class,
+```
+
+Optionally, you can publish the configuration to customise the model and repo file paths.
+By default this package will assume your model files are located in `app/`
+
+```bash
+php artisan vendor:publish --provider="Chr15k\Repository\RepositoryServiceProvider"
 ```
 
 ## Setup
