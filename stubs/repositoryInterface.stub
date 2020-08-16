@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Contracts;
+namespace {{namespace}};
 
 use Chr15k\Repository\RepositoryInterface;
 
