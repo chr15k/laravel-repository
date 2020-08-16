@@ -101,17 +101,6 @@ interface RepositoryInterface
     public function destroy($id);
 
     /**
-     * Search the entities using a given term and options.
-     *
-     * @param  string   $term       Search term
-     * @param  int      $limit      Per page limit
-     * @param  string   $orderby    Field to order the search by
-     * @param  string   $order      Order of results [asc/desc]
-     * @return array                Results
-     */
-    public function search($term = '', $limit = null, $orderBy = null, $order = null);
-
-    /**
      * Fetch any errors for the last operation that was performed on
      * service.
      *
