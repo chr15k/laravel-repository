@@ -117,13 +117,7 @@ If any other controller needs to use the same complex query, it's now in a centr
 New implementations can just be swapped out in AppServiceProvider.php and nothing else needs to change.
 
 ```php
-    public function index($id)
-    {
-        $users = $this->userRepo->someComplexQuery();
-
-        return view('users.index', compact('users'));
-    }
-}
+$users = $this->userRepo->someComplexQuery();
 ```
 
 ## Usage
@@ -132,7 +126,7 @@ then you can just call the `model()` method to fetch the model instance from the
 
 All of the fetch methods accept a `related` array for eager loading relationships.
 
-You can also fetch the latest error for the last operation by calling `error()`
+You can also fetch the latest error for the last operation by calling `errors()`
 ```php
     $this->repo->all($related = []);
     $this->repo->chunk($size, $callback);
