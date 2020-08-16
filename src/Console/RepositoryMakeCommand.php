@@ -52,26 +52,48 @@ class RepositoryMakeCommand extends GeneratorCommand
         $this->makeDirectory($path);
         $this->makeDirectory($interfacePath);
 
-        $this->files->put($path, $this->buildClass($name));
-        $this->files->put($interfacePath, $this->buildInterface($name));
+        $this->files->put($path, $this->build(
+            $this->getClassStub(),
+            $this->getClassName()
+        ));
+
+        $this->files->put($interfacePath, $this->build(
+            $this->getInterfaceStub(),
+            $this->getInterfaceName()
+        ));
 
         $this->info($this->type.' Interface created successfully.');
         $this->info($this->type.' created successfully.');
     }
 
+    /**
+     * Get the name from the input.
+     *
+     * @return string
+     */
     protected function getModelName()
     {
         return ucwords(Str::camel($this->getNameInput()));
     }
 
+    /**
+     * Get the class name.
+     *
+     * @return string
+     */
     protected function getClassName()
     {
-        return ucwords(Str::camel($this->getNameInput())) . 'Repository';
+        return $this->getModelName() . 'Repository';
     }
 
+    /**
+     * Get the interface name.
+     *
+     * @return string
+     */
     protected function getInterfaceName()
     {
-        return ucwords(Str::camel($this->getNameInput())) . 'RepositoryInterface';
+        return $this->getModelName() . 'RepositoryInterface';
     }
 
     /**
@@ -79,7 +101,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      *
      * @return string
      */
-    protected function getStub()
+    protected function getClassStub()
     {
         return __DIR__ . '/../../stubs/repository.stub';
     }
@@ -95,40 +117,16 @@ class RepositoryMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Build the class with the given name.
-     *
-     * @param  string $name
-     * @return string
-     */
-    protected function buildClass($name = null)
-    {
-        $stub = $this->files->get($this->getStub());
-
-        return $this->replaceClass($stub, $this->getClassName());
-    }
-
-    /**
-     * Build the interface with the given name.
-     *
-     * @param  string $name
-     * @return string
-     */
-    protected function buildInterface($name = null)
-    {
-        $stub = $this->files->get($this->getInterfaceStub());
-
-        return $this->replaceClass($stub, $this->getClassName());
-    }
-
-    /**
      * Replace the class name for the given stub.
      *
      * @param  string  $stub
      * @param  string  $name
      * @return string
      */
-    protected function replaceClass($stub, $name)
+    protected function build($stub, $name)
     {
+        $stub = $this->files->get($stub);
+
         $search = [
             '{{namespace}}',
             '{{class}}',
@@ -137,7 +135,7 @@ class RepositoryMakeCommand extends GeneratorCommand
         ];
 
         $replace = [
-            $this->generateNamespace($stub),
+            $this->generateNamespace($name),
             $this->generateClass($name),
             $this->getModelName(),
             $this->getInterfaceName()
@@ -180,9 +178,15 @@ class RepositoryMakeCommand extends GeneratorCommand
         );
     }
 
-    protected function generateNamespace($stub)
+    /**
+     * Generate the namespace for the stub.
+     *
+     * @param  string $name
+     * @return string
+     */
+    protected function generateNamespace($name)
     {
-        $configKey = Str::contains($stub, 'interface {{interface}}') ? 'repo_interface' : 'repo';
+        $configKey = Str::contains($name, 'Interface') ? 'repo_interface' : 'repo';
 
         return sprintf(
             "%s%s",
@@ -191,6 +195,12 @@ class RepositoryMakeCommand extends GeneratorCommand
         );
     }
 
+    /**
+     * Generate the class name.
+     *
+     * @param  string $name
+     * @return string
+     */
     protected function generateClass($name)
     {
         return str_replace($this->getNamespace($name).'\\', '', $name);
