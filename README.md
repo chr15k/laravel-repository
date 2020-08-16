@@ -144,4 +144,4 @@ You can also fetch the latest error for the last operation by calling `errors()`
 ```
 
 ## License
-The MIT License (MIT). Please see [License File](https://github.com/chr15k/laravel-repository/blob/master/LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](https://github.com/chr15k/laravel-repository/blob/master/LICENSE) for more information.
