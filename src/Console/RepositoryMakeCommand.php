@@ -53,7 +53,7 @@ class RepositoryMakeCommand extends GeneratorCommand
         $this->makeDirectory($interfacePath);
 
         $this->files->put($path, $this->build(
-            $this->getClassStub(),
+            $this->getStub(),
             $this->getClassName()
         ));
 
@@ -101,7 +101,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      *
      * @return string
      */
-    protected function getClassStub()
+    protected function getStub()
     {
         return __DIR__ . '/../../stubs/repository.stub';
     }
