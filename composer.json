@@ -1,6 +1,6 @@
 {
     "name": "chr15k/laravel-repository",
-    "description": "Repository Layer design pattern for Laravel 7.x",
+    "description": "Repository Layer design pattern for Laravel 5/6/7",
     "keywords": [
         "laravel",
         "chr15k",
