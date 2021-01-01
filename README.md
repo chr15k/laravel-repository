@@ -6,21 +6,6 @@ Laravel Repository is a package for Laravel 5 / 6 / 7.
 It's used to abstract business logic into a repository layer with the aim of keeping
 your codebase clean and maintainable.
 
-## Why use this pattern? (opinion incoming)
-
-**Controllers** should be light, human readable, and just control the flow.
-Any developer should be able to take a look at a controller and understand it simply by reading it.
-
-**Models** should be representation of the database schema and describes the relationships.
-Models should just tell you what the data 'looks' like.
-
-**Repositories** contain the business logic and any complex queries for your application.
-They act as a wrapper for your models, giving human readable names to complicated queries.
-
-The key benefit is the decoupling of models from controllers; the repository's interface is
-injected into the controller's constructor method. This means that, if you need a new implementation, the
-only thing you need to do is maintain your services!
-
 ```php
  $this->app->bind(
     'App\Repositories\Contracts\UserRepositoryInterface', // <-- injected into controller constructor
