@@ -5,7 +5,7 @@ return [
     'paths' => [
 
         // Set the path to your models (app_path() is Laravel default)
-        'models' => app_path(),
+        'models' => app_path('Models'),
 
         // Set the Repository class path.
         'repo'  => app_path('Repositories/Eloquent'),
