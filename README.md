@@ -26,12 +26,12 @@ If you are not running Laravel 5.5 (or higher), then add the service provider in
 Chr15k\Repository\RepositoryServiceProvider::class,
 ```
 
-Optionally, you can publish the configuration to customise the model and repo file paths.
-By default this package will assume your model files are located in `app/`
-
+Publish the configuration to customise the model and repo file paths.
 ```bash
 php artisan vendor:publish --provider="Chr15k\Repository\RepositoryServiceProvider"
 ```
+
+**Update config file to set the path to your models - default is `app/Models`**
 
 ## Setup
 
