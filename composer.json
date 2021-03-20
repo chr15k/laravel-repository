@@ -1,6 +1,6 @@
 {
     "name": "chr15k/laravel-repository",
-    "description": "Repository Layer design pattern for Laravel 5/6/7",
+    "description": "Repository Layer design pattern for Laravel",
     "keywords": [
         "laravel",
         "chr15k",
@@ -19,9 +19,9 @@
     ],
     "require": {
         "php": "^7.2.5",
-        "illuminate/support": "^5.0|^6.0|^7.0",
-        "illuminate/console": "^5.0|^6.0|^7.0",
-        "illuminate/database": "^5.0|^6.0|^7.0"
+        "illuminate/support": "^5.0|^6.0|^7.0|^8.0",
+        "illuminate/console": "^5.0|^6.0|^7.0|^8.0",
+        "illuminate/database": "^5.0|^6.0|^7.0|^8.0"
     },
     "autoload": {
         "psr-4": {
